@@ -1,0 +1,29 @@
+{
+  "name": "@r34/biome-config",
+  "version": "1.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/ErwannRousseau/biome-config",
+  "author": {
+    "name": "Erwann Rousseau",
+    "email": "erwann.rousseau@icloud.com",
+    "url": "https://erwannrousseau.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErwannRousseau/biome-config.git"
+  },
+  "type": "module",
+  "description": "BiomeJS configuration",
+  "keywords": ["biome", "biomejs", "config", "configuration"],
+  "main": "biome.json",
+  "files": ["biome.json"],
+  "exports": {
+    ".": "./biome.json"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "1.8.3"
+  }
+}
