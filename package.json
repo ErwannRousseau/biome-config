@@ -1,0 +1,46 @@
+{
+  "name": "biome-config",
+  "version": "0.0.1",
+  "description": "A simple configuration library for Biome.js",
+  "keywords": ["biome.js", "configuration", "config", "lint", "format"],
+  "homepage": "https://github.com/ErwannRousseau/biome-config",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ErwannRousseau/biome-config/issues"
+  },
+  "author": "Erwann Rousseau (a.k.a R2) <erwannrousseau@icloud.com> (https://erwannrousseau.dev)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErwannRousseau/biome-config.git"
+  },
+  "files": ["dist"],
+  "type": "module",
+  "main": "dist/bin.js",
+  "bin": {
+    "biome-setup": "./dist/bin.js"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/bin.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup && cp ./biome.json dist/",
+    "ci": "pnpm build && pnpm check && pnpm check-exports",
+    "check": "biome check && tsc",
+    "check:fix": "biome check --fix",
+    "check-exports": "attw --pack . --ignore-rules no-resolution",
+    "local-release": "changeset version && pnpm check:fix && changeset publish",
+    "prepublishOnly": "pnpm run ci"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.16.4",
+    "@biomejs/biome": "1.9.3",
+    "@changesets/cli": "^2.27.8",
+    "@types/node": "^22.7.4",
+    "chalk": "^5.3.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
+  }
+}
