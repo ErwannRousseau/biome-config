@@ -31,7 +31,7 @@
     "check": "biome check && tsc",
     "check:fix": "biome check --fix",
     "check-exports": "attw --pack . --ignore-rules no-resolution",
-    "release": "changeset version && changeset publish && biome format --fix ./package.json"
+    "release": "changeset version && changeset publish"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.16.4",
