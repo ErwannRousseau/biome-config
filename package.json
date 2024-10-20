@@ -2,13 +2,7 @@
   "name": "biome-config",
   "version": "0.0.3",
   "description": "A simple configuration library for Biome.js",
-  "keywords": [
-    "biome.js",
-    "configuration",
-    "config",
-    "lint",
-    "format"
-  ],
+  "keywords": ["biome.js", "configuration", "config", "lint", "format"],
   "homepage": "https://github.com/ErwannRousseau/biome-config",
   "license": "MIT",
   "bugs": {
@@ -19,9 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/ErwannRousseau/biome-config.git"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "type": "module",
   "main": "dist/bin.js",
   "bin": {
