@@ -1,0 +1,38 @@
+name: Update Biome Schema
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  update-biome-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for @biomejs/biome in PR title or body
+        id: check_keyword
+        run: |
+          if [[ "${{ github.event.pull_request.title }}" != *"@biomejs/biome"* && "${{ github.event.pull_request.body }}" != *"@biomejs/biome"* ]]; then
+            echo "Keyword not found in title or body. Exiting."
+            exit 0
+          fi
+
+      - name: Get updated Biome version
+        id: biome_version
+        run: |
+          echo "VERSION=$(jq -r '.dependencies["@biomejs/biome"]' package.json)" >> $GITHUB_ENV
+
+      - name: Update biome.json schema version
+        run: |
+          NEW_SCHEMA="https://biomejs.dev/schemas/${{ env.VERSION }}/schema.json"
+          jq '."$schema" = "'$NEW_SCHEMA'"' biome.json > temp.json && mv temp.json biome.json
+
+      - name: Commit & Push changes to PR
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'chore: update biome schema to ${{ env.VERSION }}'
+          branch: ${{ github.head_ref }}
