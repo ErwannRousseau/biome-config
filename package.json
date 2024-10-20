@@ -17,7 +17,7 @@
   "type": "module",
   "main": "dist/bin.js",
   "bin": {
-    "biome-setup": "./dist/bin.js"
+    "init": "./dist/bin.js"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -31,8 +31,7 @@
     "check": "biome check && tsc",
     "check:fix": "biome check --fix",
     "check-exports": "attw --pack . --ignore-rules no-resolution",
-    "local-release": "changeset version && pnpm check:fix && changeset publish",
-    "prepublishOnly": "pnpm run ci"
+    "release": "changeset version && changeset publish && biome format --fix ./package.json"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.16.4",

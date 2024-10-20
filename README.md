@@ -2,20 +2,12 @@
 
 A simple configuration utility for [Biome.js](https://biomejs.dev/), the best linter/formatter for JavaScript.
 
-## Installation
-
-Install the package globally using npm:
-
-```bash
-npm install -g biome-config
-```
-
 ## Usage
 
 In your project root, execute the following command:
 
 ```bash
-npx biome-setup
+npx biome-config init
 ```
 
 This command will:
