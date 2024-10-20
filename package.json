@@ -2,13 +2,7 @@
   "name": "biome-config",
   "version": "0.0.2",
   "description": "A simple configuration library for Biome.js",
-  "keywords": [
-    "biome.js",
-    "configuration",
-    "config",
-    "lint",
-    "format"
-  ],
+  "keywords": ["biome.js", "configuration", "config", "lint", "format"],
   "homepage": "https://github.com/ErwannRousseau/biome-config",
   "license": "MIT",
   "bugs": {
@@ -19,13 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/ErwannRousseau/biome-config.git"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "type": "module",
   "main": "dist/bin.js",
   "bin": {
-    "biome-setup": "./dist/bin.js"
+    "init": "./dist/bin.js"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -35,20 +27,19 @@
   },
   "scripts": {
     "build": "tsup && cp ./biome.json dist/",
-    "ci": "pnpm build && pnpm check && pnpm check-exports",
+    "ci": "pnpm build && biome ci --reporter=github && pnpm check-exports",
     "check": "biome check && tsc",
     "check:fix": "biome check --fix",
     "check-exports": "attw --pack . --ignore-rules no-resolution",
-    "local-release": "changeset version && pnpm check:fix && changeset publish",
-    "prepublishOnly": "pnpm run ci"
+    "release": "changeset version && changeset publish && biome format --fix ./package.json"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.16.4",
-    "@biomejs/biome": "1.9.3",
-    "@changesets/cli": "^2.27.8",
-    "@types/node": "^22.7.4",
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.9",
+    "@types/node": "^22.7.7",
     "chalk": "^5.3.0",
     "tsup": "^8.3.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
