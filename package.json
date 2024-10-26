@@ -1,6 +1,6 @@
 {
   "name": "biome-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple configuration library for Biome.js",
   "keywords": ["biome.js", "configuration", "config", "lint", "format"],
   "homepage": "https://github.com/ErwannRousseau/biome-config",
@@ -17,7 +17,7 @@
   "type": "module",
   "main": "dist/bin.js",
   "bin": {
-    "biome-setup": "./dist/bin.js"
+    "setup": "./dist/bin.js"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -36,11 +36,11 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.16.4",
-    "@biomejs/biome": "1.9.3",
-    "@changesets/cli": "^2.27.8",
-    "@types/node": "^22.7.4",
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.9",
+    "@types/node": "^22.8.1",
     "chalk": "^5.3.0",
-    "tsup": "^8.3.0",
-    "typescript": "^5.6.2"
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
   }
 }
