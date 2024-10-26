@@ -22,7 +22,7 @@ const updateBiomeSchema = () => {
   const biomeJsonPath = path.resolve(process.cwd(), "biome.json");
 
   if (!fs.existsSync(biomeJsonPath)) {
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore lint/suspicious/noConsoleLog:
     console.log(chalk.yellow("🌝 biome.json not found, skipping update."));
     process.exit(1);
   }
@@ -30,7 +30,7 @@ const updateBiomeSchema = () => {
   const biomeJson = readJsonFile(biomeJsonPath);
   biomeJson.$schema = `https://biomejs.dev/schemas/${biomeVersion}/schema.json`;
   writeJsonFile(biomeJsonPath, biomeJson);
-  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+  // biome-ignore lint/suspicious/noConsoleLog:
   console.log(
     chalk.blue(
       `biome.json has been updated with schema version ${biomeVersion}.`,
@@ -43,6 +43,7 @@ const main = async () => {
   installBiomeLatest(packageManager);
   updateBiomeSchema();
   runFormart();
+  // biome-ignore lint/suspicious/noConsoleLog:
   console.log(chalk.green("🎉 Biome updated successfully!"));
 };
 
