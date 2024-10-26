@@ -15,15 +15,9 @@
   },
   "files": ["dist"],
   "type": "module",
-  "main": "dist/bin.js",
   "bin": {
-    "setup": "./dist/bin.js"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "import": "./dist/bin.js"
-    }
+    "setup": "./dist/setup.js",
+    "update": "./dist/update.js"
   },
   "scripts": {
     "build": "tsup && cp ./biome.json dist/",
