@@ -4,6 +4,8 @@ A simple configuration utility for [Biome.js](https://biomejs.dev/), the best li
 
 ## Usage
 
+### For new projects
+
 In your project root, execute the following command:
 
 ```bash
@@ -16,6 +18,19 @@ This command will:
 - Create a `biome.json` file in your project root with a complete configuration ready to work.
 
 You'll also be prompted to add custom scripts to your `package.json` file, which will help you run `biome.js` commands more easily.
+
+### For updating your configuration
+
+If you already have a `biome.json` file in your project root, you can update it by executing the following command:
+
+```bash
+npx biome-config update
+```
+
+This command will:
+
+- Update the latest version of `@biomejs/biome`.
+- Update your `biome.json` file with the latest `$schema` version.
 
 ## What's next?
 
