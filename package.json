@@ -29,7 +29,7 @@
     "prepublishOnly": "pnpm run ci"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.16.4",
+    "@arethetypeswrong/cli": "^0.17.0",
     "@biomejs/biome": "^1.9.4",
     "@changesets/cli": "^2.27.9",
     "@types/node": "^22.8.1",
