@@ -58,3 +58,9 @@ Then, add the following configuration to your `settings.json` or `.vscode/settin
 > javascript, javascriptreact, typescript, typescriptreact, json, jsonc, css, graphql
 
 ### Now you are ready to go! 🚀
+
+----
+
+#### Repo Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/ace7b3ef052fd531038fdff93079d573baea77ed.svg "Repobeats analytics image")
