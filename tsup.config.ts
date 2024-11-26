@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entryPoints: ["src/setup.ts", "src/update.ts"],
+  entryPoints: ["src/cli.ts", "src/setup.ts", "src/update.ts"],
   format: ["esm"],
   dts: true,
   outDir: "dist",
