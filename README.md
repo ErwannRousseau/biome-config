@@ -1,6 +1,8 @@
-# Biome config
+# Biome Config
 
 A simple configuration utility for [Biome.js](https://biomejs.dev/), the best linter/formatter for JavaScript.
+
+![CI](https://github.com/erwannrousseau/biome-config/workflows/CI/badge.svg)
 
 ## Usage
 
@@ -17,7 +19,7 @@ This command will:
 - Install `@biomejs/biome`.
 - Create a `biome.json` file in your project root with a complete configuration ready to work.
 
-You'll also be prompted to add custom scripts to your `package.json` file, which will help you run `biome.js` commands more easily.
+You will be prompted to add custom scripts to your `package.json` file to run `biome.js` commands more easily.
 
 ### For updating your configuration
 
@@ -32,7 +34,7 @@ This command will:
 - Update the latest version of `@biomejs/biome`.
 - Update your `biome.json` file with the latest `$schema` version.
 
-## What's next?
+## What's Next?
 
 To use `biome.js` as your default linter and formatter, you should install the following VS Code extension:
 

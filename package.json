@@ -16,8 +16,7 @@
   "files": ["dist"],
   "type": "module",
   "bin": {
-    "setup": "./dist/setup.js",
-    "update": "./dist/update.js"
+    "biome-config": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsup && cp ./biome.json dist/",
@@ -29,7 +28,7 @@
     "prepublishOnly": "pnpm run ci"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.16.4",
+    "@arethetypeswrong/cli": "^0.17.0",
     "@biomejs/biome": "^1.9.4",
     "@changesets/cli": "^2.27.9",
     "@types/node": "^22.8.1",

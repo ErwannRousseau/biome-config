@@ -12,10 +12,10 @@ export const installBiomeLatest = (packageManager: string) => {
   );
 
   const command = {
-    npm: "npm install --save-dev --save-exact @biomejs/biome",
-    yarn: "yarn add --dev --exact @biomejs/biome",
-    pnpm: "pnpm add --save-dev --save-exact @biomejs/biome",
-    bun: "bun add --dev --exact @biomejs/biome",
+    npm: "npm install --save-dev --save-exact @biomejs/biome@latest",
+    yarn: "yarn add --dev --exact @biomejs/biome@latest",
+    pnpm: "pnpm add --save-dev --save-exact @biomejs/biome@latest",
+    bun: "bun add --dev --exact @biomejs/biome@latest",
   }[packageManager];
 
   if (!command) {
