@@ -1,5 +1,11 @@
 # biome-config
 
+## 0.0.6
+
+### Patch Changes
+
+- 6464598: fix correct script execution for setup and update
+
 ## 0.0.5
 
 ### Patch Changes
