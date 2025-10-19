@@ -1,8 +1,9 @@
 # Biome Config
 
-A simple configuration utility for [Biome.js](https://biomejs.dev/), the best linter/formatter for JavaScript.
-
 ![CI](https://github.com/erwannrousseau/biome-config/workflows/CI/badge.svg)
+[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
+
+A simple configuration utility for [Biome.js](https://biomejs.dev/), the best linter/formatter for JavaScript.
 
 ## Usage
 
