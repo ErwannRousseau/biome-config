@@ -13,7 +13,7 @@ interface SetupOptions {
 }
 
 export async function setupCommand(options: SetupOptions): Promise<void> {
-  p.intro(pc.bgCyan(pc.black(" 🦋 Biome Configuration Setup ")));
+  p.intro(pc.bgCyan(pc.black(" ⚡️ Biome Configuration Setup ")));
 
   let config = {
     scripts: !options.skipScripts,
@@ -49,27 +49,22 @@ export async function setupCommand(options: SetupOptions): Promise<void> {
   p.log.step("Starting Biome setup...");
 
   try {
-    // Install Biome
     await installBiome();
 
-    // Copy biome.json
     await copyBiomeConfig();
 
-    // VS Code settings
     if (config.vscode) {
       await copyVSCodeSettings();
     } else {
       p.log.info("Skipping VS Code settings");
     }
 
-    // npm scripts
     if (config.scripts) {
       await addNpmScripts();
     } else {
       p.log.info("Skipping npm scripts");
     }
 
-    // Format files
     await formatFiles();
 
     p.outro(pc.green("🎉 Biome setup completed successfully!"));

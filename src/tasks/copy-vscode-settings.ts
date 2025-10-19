@@ -3,7 +3,26 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
-import { mergeJsonSettings, readJsonFile, writeJsonFile } from "../utils";
+import { readJsonFile, writeJsonFile } from "../utils";
+
+// biome-ignore lint/suspicious/noExplicitAny: Generic JSON merge utility
+const mergeJsonSettings = (existing: any, newSettings: any): any => {
+  const merged = { ...existing };
+
+  for (const key in newSettings) {
+    if (
+      typeof newSettings[key] === "object" &&
+      !Array.isArray(newSettings[key]) &&
+      newSettings[key] !== null
+    ) {
+      merged[key] = mergeJsonSettings(existing[key] || {}, newSettings[key]);
+    } else {
+      merged[key] = newSettings[key];
+    }
+  }
+
+  return merged;
+};
 
 export async function copyVSCodeSettings(): Promise<void> {
   const sourcePath = path.resolve(

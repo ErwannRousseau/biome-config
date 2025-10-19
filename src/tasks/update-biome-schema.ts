@@ -14,7 +14,7 @@ export async function updateBiomeSchema(): Promise<void> {
     let biomeVersion = packageJson.devDependencies["@biomejs/biome"];
     if (!biomeVersion) {
       spinner.stop(
-        `${pc.yellow("⚠")} @biomejs/biome not found in devDependencies`,
+        `${pc.yellow("⚠")} @biomejs/biome not found in devDependencies, please first use "npx biome-config setup"`,
       );
       return;
     }

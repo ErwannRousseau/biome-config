@@ -10,13 +10,10 @@ export async function updateCommand(): Promise<void> {
   p.log.step("Updating Biome to latest version...");
 
   try {
-    // Install latest Biome
     await installBiome();
 
-    // Update biome.json schema
     await updateBiomeSchema();
 
-    // Format files
     await formatFiles();
 
     p.outro(pc.green("🎉 Biome updated successfully!"));

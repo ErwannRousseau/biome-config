@@ -13,11 +13,6 @@
 - **Enhanced Help**: Auto-generated help messages with detailed option descriptions
 - **Flexible Options**: New CLI flags (`--skip-vscode`, `--skip-scripts`, `-y/--yes`)
 
-### 🛠️ Breaking Changes
-
-- Command invocation remains the same (`npx biome-config setup` / `update`)
-- All existing functionality preserved, just better organized
-
 ### 📦 Dependencies
 
 - Added: `commander@^14.0.1`, `@clack/prompts@^0.11.0`, `picocolors@^1.1.1`
