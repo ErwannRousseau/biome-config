@@ -35,7 +35,7 @@
     "url": "git+https://github.com/ErwannRousseau/biome-config.git"
   },
   "scripts": {
-    "build": "tsup && cp ./biome.json dist/",
+    "build": "tsup && cp ./biome.json dist/ && mkdir -p dist/.vscode && cp ./.vscode/settings.json dist/.vscode/",
     "check": "biome check && tsc",
     "check-exports": "attw --pack . --ignore-rules no-resolution",
     "check:fix": "biome check --fix",

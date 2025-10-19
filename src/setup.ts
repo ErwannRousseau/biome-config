@@ -8,6 +8,7 @@ import chalk from "chalk";
 import {
   detectPackageManager,
   installBiomeLatest,
+  mergeJsonSettings,
   packageJsonPath,
   readJsonFile,
   runFormart,
@@ -30,6 +31,78 @@ const copyBiomeConfig = () => {
   fs.copyFileSync(sourcePath, destinationPath);
   // biome-ignore lint/suspicious/noConsole: User input validation
   console.log(chalk.green("✍️  biome.json added successfully."));
+};
+
+const copyVSCodeSettings = async () => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  const askQuestion = (): Promise<string> => {
+    return new Promise((resolve) => {
+      rl.question(
+        "Do you want to add/update VS Code settings for Biome? (Y/n)\n",
+        (answer) => {
+          resolve(answer.trim().toLowerCase());
+        },
+      );
+    });
+  };
+
+  let answer: string;
+  do {
+    answer = await askQuestion();
+    if (answer !== "y" && answer !== "n" && answer !== "") {
+      // biome-ignore lint/suspicious/noConsole: User input validation
+      console.log(
+        chalk.red(
+          "🚨 Invalid response. Please answer with 'Y', 'n' or 'Enter'.",
+        ),
+      );
+    }
+  } while (answer !== "y" && answer !== "n" && answer !== "");
+
+  rl.close();
+
+  if (answer === "n") {
+    // biome-ignore lint/suspicious/noConsole: User input validation
+    console.log(chalk.yellow("🌝 Skipping VS Code settings."));
+    return;
+  }
+
+  const sourcePath = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    ".vscode",
+    "settings.json",
+  );
+
+  const vscodeDir = path.resolve(process.cwd(), ".vscode");
+  const destinationPath = path.resolve(vscodeDir, "settings.json");
+
+  if (!fs.existsSync(vscodeDir)) {
+    fs.mkdirSync(vscodeDir, { recursive: true });
+  }
+
+  const newSettings = readJsonFile(sourcePath);
+
+  if (fs.existsSync(destinationPath)) {
+    // biome-ignore lint/suspicious/noConsole: User input validation
+    console.log(
+      chalk.blue("📝 Existing .vscode/settings.json found, merging configs..."),
+    );
+
+    const existingSettings = readJsonFile(destinationPath);
+    const mergedSettings = mergeJsonSettings(existingSettings, newSettings);
+
+    writeJsonFile(destinationPath, mergedSettings);
+    // biome-ignore lint/suspicious/noConsole: User input validation
+    console.log(chalk.green("✍️  VS Code settings merged successfully."));
+  } else {
+    fs.copyFileSync(sourcePath, destinationPath);
+    // biome-ignore lint/suspicious/noConsole: User input validation
+    console.log(chalk.green("✍️  .vscode/settings.json added successfully."));
+  }
 };
 
 const addScriptsToPackageJson = async () => {
@@ -93,6 +166,7 @@ const main = async () => {
   const packageManager = detectPackageManager();
   installBiomeLatest(packageManager);
   copyBiomeConfig();
+  await copyVSCodeSettings();
   await addScriptsToPackageJson();
   runFormart();
   // biome-ignore lint/suspicious/noConsole: User input validation
