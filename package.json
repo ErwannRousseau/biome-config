@@ -1,39 +1,48 @@
 {
-  "name": "biome-config",
-  "version": "0.0.6",
-  "description": "A simple configuration library for Biome.js",
-  "keywords": ["biome.js", "configuration", "config", "lint", "format"],
-  "homepage": "https://github.com/ErwannRousseau/biome-config",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ErwannRousseau/biome-config/issues"
-  },
   "author": "Erwann Rousseau (a.k.a R2) <erwannrousseau@icloud.com> (https://erwannrousseau.dev)",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ErwannRousseau/biome-config.git"
-  },
-  "files": ["dist"],
-  "type": "module",
   "bin": {
     "biome-config": "./dist/cli.js"
   },
-  "scripts": {
-    "build": "tsup && cp ./biome.json dist/",
-    "ci": "pnpm build && biome ci --reporter=github && pnpm check-exports",
-    "check": "biome check && tsc",
-    "check:fix": "biome check --fix",
-    "check-exports": "attw --pack . --ignore-rules no-resolution",
-    "local-release": "changeset version && pnpm check:fix && changeset publish",
-    "prepublishOnly": "pnpm run ci"
+  "bugs": {
+    "url": "https://github.com/ErwannRousseau/biome-config/issues"
   },
+  "description": "A simple configuration library for Biome.js",
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.0",
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.0.6",
     "@changesets/cli": "^2.27.9",
     "@types/node": "^22.8.1",
     "chalk": "^5.3.0",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ErwannRousseau/biome-config",
+  "keywords": [
+    "biome.js",
+    "configuration",
+    "config",
+    "lint",
+    "format"
+  ],
+  "license": "MIT",
+  "name": "biome-config",
+  "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErwannRousseau/biome-config.git"
+  },
+  "scripts": {
+    "build": "tsup && cp ./biome.json dist/",
+    "check": "biome check && tsc",
+    "check-exports": "attw --pack . --ignore-rules no-resolution",
+    "check:fix": "biome check --fix",
+    "ci": "pnpm build && biome ci --reporter=github && pnpm check-exports",
+    "local-release": "changeset version && pnpm check:fix && changeset publish",
+    "prepublishOnly": "pnpm run ci"
+  },
+  "type": "module",
+  "version": "0.0.6"
 }

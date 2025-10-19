@@ -22,13 +22,13 @@ const copyBiomeConfig = () => {
 
   const destinationPath = path.resolve(process.cwd(), "biome.json");
   if (fs.existsSync(destinationPath)) {
-    // biome-ignore lint/suspicious/noConsoleLog:
+    // biome-ignore lint/suspicious/noConsole: User input validation
     console.log(chalk.yellow("🌝 biome.json already exists, skipping copy."));
     return;
   }
 
   fs.copyFileSync(sourcePath, destinationPath);
-  // biome-ignore lint/suspicious/noConsoleLog:
+  // biome-ignore lint/suspicious/noConsole: User input validation
   console.log(chalk.green("✍️  biome.json added successfully."));
 };
 
@@ -57,7 +57,7 @@ const addScriptsToPackageJson = async () => {
   do {
     answer = await askQuestion();
     if (answer !== "y" && answer !== "n" && answer !== "") {
-      // biome-ignore lint/suspicious/noConsoleLog:
+      // biome-ignore lint/suspicious/noConsole: User input validation
       console.log(
         chalk.red(
           "🚨 Invalid response. Please answer with 'Y', 'n' or 'Enter'.",
@@ -67,7 +67,7 @@ const addScriptsToPackageJson = async () => {
   } while (answer !== "y" && answer !== "n" && answer !== "");
 
   if (answer === "n") {
-    // biome-ignore lint/suspicious/noConsoleLog:
+    // biome-ignore lint/suspicious/noConsole: User input validation
     console.log(chalk.yellow("🌝 Skipping script addition."));
     rl.close();
     return;
@@ -84,7 +84,7 @@ const addScriptsToPackageJson = async () => {
 
   packageJson.scripts = { ...packageJson.scripts, ...newScripts };
   writeJsonFile(packageJsonPath, packageJson);
-  // biome-ignore lint/suspicious/noConsoleLog:
+  // biome-ignore lint/suspicious/noConsole: User input validation
   console.log(chalk.green("✍️  Scripts added to package.json."));
   rl.close();
 };
@@ -95,7 +95,7 @@ const main = async () => {
   copyBiomeConfig();
   await addScriptsToPackageJson();
   runFormart();
-  // biome-ignore lint/suspicious/noConsoleLog:
+  // biome-ignore lint/suspicious/noConsole: User input validation
   console.log(chalk.green("🎉 Biome setup completed successfully!"));
 };
 

@@ -1,13 +1,22 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true,
-    "defaultBranch": "main"
+  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedAttributes": "on",
+        "useSortedKeys": "on"
+      }
+    }
   },
-  "organizeImports": {
-    "enabled": true
+  "files": {
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/public",
+      "!**/build"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -17,42 +26,65 @@
     "lineEnding": "lf",
     "lineWidth": 80
   },
+  "javascript": {
+    "globals": ["React"]
+  },
   "linter": {
+    "domains": {
+      "project": "recommended",
+      "react": "all",
+      "test": "all"
+    },
     "enabled": true,
     "rules": {
-      "recommended": true,
       "correctness": {
-        "noUnusedImports": "warn",
         "noUndeclaredVariables": "error",
+        "noUnusedImports": "warn",
         "noUnusedVariables": "error",
         "useExhaustiveDependencies": "warn"
       },
-      "suspicious": {
-        "noConsoleLog": "warn",
-        "noEmptyBlockStatements": "error"
-      },
       "nursery": {
         "useSortedClasses": {
+          "fix": "safe",
           "level": "warn",
           "options": {
             "attributes": ["className"],
             "functions": ["cn", "cva"]
-          },
-          "fix": "safe"
+          }
         }
       },
+      "recommended": true,
       "style": {
+        "noInferrableTypes": "error",
+        "noParameterAssign": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
         "useNodejsImportProtocol": {
+          "fix": "safe",
+          "level": "warn"
+        },
+        "useNumberNamespace": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error"
+      },
+      "suspicious": {
+        "noConsole": {
           "level": "warn",
-          "fix": "safe"
-        }
+          "options": {
+            "allow": ["error", "warn", "info"]
+          }
+        },
+        "noEmptyBlockStatements": "error"
       }
     }
   },
-  "javascript": {
-    "globals": ["React"]
-  },
-  "files": {
-    "ignore": ["node_modules", "dist", "public", "build"]
+  "vcs": {
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }
