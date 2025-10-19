@@ -55,3 +55,22 @@ export const runFormart = () => {
     stdio: "inherit",
   });
 };
+
+// biome-ignore lint/suspicious/noExplicitAny: Generic JSON merge utility
+export const mergeJsonSettings = (existing: any, newSettings: any): any => {
+  const merged = { ...existing };
+
+  for (const key in newSettings) {
+    if (
+      typeof newSettings[key] === "object" &&
+      !Array.isArray(newSettings[key]) &&
+      newSettings[key] !== null
+    ) {
+      merged[key] = mergeJsonSettings(existing[key] || {}, newSettings[key]);
+    } else {
+      merged[key] = newSettings[key];
+    }
+  }
+
+  return merged;
+};
