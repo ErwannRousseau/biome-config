@@ -8,7 +8,7 @@ import chalk from "chalk";
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
-  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+  // biome-ignore lint/suspicious/noConsole: User input validation <explanation>
   console.log(
     chalk.red("Error: You need to specify a script to run (setup or update)."),
   );
@@ -19,7 +19,7 @@ const script = args[0] || "";
 const allowedScripts = ["setup", "update"];
 
 if (!allowedScripts.includes(script)) {
-  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+  // biome-ignore lint/suspicious/noConsole: User input validation <explanation>
   console.log(
     chalk.red(`Error: Invalid “${script}” script. Use “setup” or “update”.`),
   );
@@ -34,7 +34,7 @@ const scriptPath = path.resolve(
 try {
   execFileSync("node", [scriptPath, ...args.slice(1)], { stdio: "inherit" });
 } catch (error) {
-  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+  // biome-ignore lint/suspicious/noConsole: User input validation <explanation>
   console.log(chalk.red(`Error executing ${script} script: `, error));
   process.exit(1);
 }

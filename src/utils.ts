@@ -6,16 +6,16 @@ import chalk from "chalk";
 export const packageJsonPath = path.resolve(process.cwd(), "package.json");
 
 export const installBiomeLatest = (packageManager: string) => {
-  // biome-ignore lint/suspicious/noConsoleLog:
+  // biome-ignore lint/suspicious/noConsole: User input validation
   console.log(
     chalk.blue(`🦋 Installing @biomejs/biome using ${packageManager}...`),
   );
 
   const command = {
-    npm: "npm install --save-dev --save-exact @biomejs/biome@latest",
-    yarn: "yarn add --dev --exact @biomejs/biome@latest",
-    pnpm: "pnpm add --save-dev --save-exact @biomejs/biome@latest",
     bun: "bun add --dev --exact @biomejs/biome@latest",
+    npm: "npm install --save-dev --save-exact @biomejs/biome@latest",
+    pnpm: "pnpm add --save-dev --save-exact @biomejs/biome@latest",
+    yarn: "yarn add --dev --exact @biomejs/biome@latest",
   }[packageManager];
 
   if (!command) {
