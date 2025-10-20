@@ -64,7 +64,8 @@
         "useEnumInitializers": "error",
         "useNodejsImportProtocol": {
           "fix": "safe",
-          "level": "warn"
+          "level": "warn",
+          "options": {}
         },
         "useNumberNamespace": "error",
         "useSelfClosingElements": "error",
@@ -72,6 +73,7 @@
       },
       "suspicious": {
         "noConsole": {
+          "fix": "none",
           "level": "warn",
           "options": {
             "allow": ["error", "warn", "info"]
