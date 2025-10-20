@@ -9,10 +9,12 @@
   "description": "A simple configuration library for Biome.js",
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.0",
-    "@biomejs/biome": "^2.0.6",
+    "@biomejs/biome": "^2.2.6",
     "@changesets/cli": "^2.27.9",
+    "@clack/prompts": "^0.11.0",
     "@types/node": "^22.8.1",
-    "chalk": "^5.3.0",
+    "commander": "^14.0.1",
+    "picocolors": "^1.1.1",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
   },
@@ -40,6 +42,8 @@
     "check-exports": "attw --pack . --ignore-rules no-resolution",
     "check:fix": "biome check --fix",
     "ci": "pnpm build && biome ci --reporter=github && pnpm check-exports",
+    "format": "biome format --fix",
+    "lint": "biome lint --fix",
     "local-release": "changeset version && pnpm check:fix && changeset publish",
     "prepublishOnly": "pnpm run ci"
   },
