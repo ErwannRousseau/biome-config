@@ -9,10 +9,12 @@
   "description": "A simple configuration library for Biome.js",
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.0",
-    "@biomejs/biome": "^2.0.6",
+    "@biomejs/biome": "^2.3.0",
     "@changesets/cli": "^2.27.9",
+    "@clack/prompts": "^0.11.0",
     "@types/node": "^22.8.1",
-    "chalk": "^5.3.0",
+    "commander": "^14.0.1",
+    "picocolors": "^1.1.1",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
   },
@@ -29,7 +31,10 @@
   ],
   "license": "MIT",
   "name": "biome-config",
-  "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d",
+  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ErwannRousseau/biome-config.git"
@@ -40,6 +45,8 @@
     "check-exports": "attw --pack . --ignore-rules no-resolution",
     "check:fix": "biome check --fix",
     "ci": "pnpm build && biome ci --reporter=github && pnpm check-exports",
+    "format": "biome format --fix",
+    "lint": "biome lint --fix",
     "local-release": "changeset version && pnpm check:fix && changeset publish",
     "prepublishOnly": "pnpm run ci"
   },
