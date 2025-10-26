@@ -2,8 +2,11 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.3/schema.json",
   "access": "public",
   "baseBranch": "main",
-  "changelog": "@changesets/cli/changelog",
-  "commit": true,
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "ErwannRousseau/biome-config" }
+  ],
+  "commit": false,
   "fixed": [],
   "ignore": [],
   "linked": [],
