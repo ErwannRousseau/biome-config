@@ -1,5 +1,11 @@
 # biome-config
 
+## 0.1.1
+
+### Patch Changes
+
+- [#94](https://github.com/ErwannRousseau/biome-config/pull/94) [`6012695`](https://github.com/ErwannRousseau/biome-config/commit/6012695492d9cdc3c224fd2a6834357786f16ffe) Thanks [@ErwannRousseau](https://github.com/ErwannRousseau)! - fix: direct-deps
+
 ## 0.1.0
 
 ### Minor Changes
