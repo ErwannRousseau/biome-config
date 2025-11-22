@@ -1,5 +1,11 @@
 # biome-config
 
+## 0.1.2
+
+### Patch Changes
+
+- [`57d27d7`](https://github.com/ErwannRousseau/biome-config/commit/57d27d73ea143a0e9960cd8249c825adef3b2369) Thanks [@ErwannRousseau](https://github.com/ErwannRousseau)! - add missing build step in release workflow
+
 ## 0.1.1
 
 ### Patch Changes
