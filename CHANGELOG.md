@@ -1,5 +1,11 @@
 # biome-config
 
+## 0.1.3
+
+### Patch Changes
+
+- [`6cac8ea`](https://github.com/ErwannRousseau/biome-config/commit/6cac8eac2d279482b9ea0450d08f76dab3cf685c) Thanks [@ErwannRousseau](https://github.com/ErwannRousseau)! - fix: copy path from config
+
 ## 0.1.2
 
 ### Patch Changes
