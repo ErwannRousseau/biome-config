@@ -7,7 +7,6 @@ import pc from "picocolors";
 export async function copyBiomeConfig(): Promise<void> {
   const sourcePath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
-    "..",
     "biome.json",
   );
 
