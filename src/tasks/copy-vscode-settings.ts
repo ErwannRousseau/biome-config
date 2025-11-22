@@ -27,7 +27,6 @@ const mergeJsonSettings = (existing: any, newSettings: any): any => {
 export async function copyVSCodeSettings(): Promise<void> {
   const sourcePath = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
-    "..",
     ".vscode",
     "settings.json",
   );
